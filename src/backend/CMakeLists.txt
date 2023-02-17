@@ -4,10 +4,25 @@ set(BACKEND_TARGET pdCalcBackend)
 
 set(BACKEND_HEADER
     Stack.h
+    Command.h
+    CommandDispatcher.h
+    CommandManager.h
+    CoreCommands.h
+    UserInterface.h
+    CommandInterpreter.h
+    CommandFactory.h
+    StoredProcedure.h
+    AppObservers.h
  )
  
 set(BACKEND_SRC
     Stack.cpp
+    Command.cpp
+    CommandDispatcher.cpp
+    CommandManager.cpp
+    CommandInterpreter.cpp
+    CommandFactory.cpp
+    StoredProcedure.cpp
  )
  
 add_library(${BACKEND_TARGET} SHARED ${BACKEND_HEADER} ${BACKEND_SRC})

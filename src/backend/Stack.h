@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "../utilities/Publisher.h"
+#include "Utilities.h"
 
 #include <vector>
 #include <string>
