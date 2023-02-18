@@ -17,8 +17,8 @@
 // along with pdCalc; if not, see <http://www.gnu.org/licenses/>.
 
 #include <QtTest/QtTest>
-#include "../utilitiesTest/PublisherObserverTest.h"
-#include "../backendTest/StackTest.h"
+#include "PublisherObserverTest.h"
+#include "StackTest.h"
 
 #include <iostream>
 #include <QStringList>

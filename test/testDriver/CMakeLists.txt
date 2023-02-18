@@ -9,8 +9,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set_target_properties(${DRIVER_TARGET} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${LIBRARY_OUTPUT_PATH}/$<CONFIG>")
 endif()
 
-set(DRIVER_LIBS pdCalcUtilities
-                pdCalcBackend
+set(DRIVER_LIBS
                 pdCalcBackendTest
                 pdCalcUtilitiesTest)
 
