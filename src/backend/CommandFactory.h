@@ -66,5 +66,6 @@ namespace pdCalc {
 		using Factory = unordered_map<string, CommandPtr>;
 		Factory factory_;
 	};
+	void RegisterCoreCommands(UserInterface& ui);
 }
 #endif

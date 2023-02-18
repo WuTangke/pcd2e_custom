@@ -6,8 +6,14 @@ cmake_minimum_required(VERSION 3.16.3)
 
 set(UTILITIES_TEST_TARGET pdCalcUtilitiesTest)
 
-set(UTILITIES_TEST_HEADER PublisherObserverTest.h)
-set(UTILITIES_TEST_SRC PublisherObserverTest.cpp)
+set(UTILITIES_TEST_HEADER
+    PublisherObserverTest.h
+    TokenizerTest.h
+    )
+set(UTILITIES_TEST_SRC
+    PublisherObserverTest.cpp
+    TokenizerTest.cpp
+)
 
 set(CMAKE_AUTOMOC ON)
 

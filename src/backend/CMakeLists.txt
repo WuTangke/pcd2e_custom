@@ -23,6 +23,7 @@ set(BACKEND_SRC
     CommandInterpreter.cpp
     CommandFactory.cpp
     StoredProcedure.cpp
+    AppObservers.cpp
  )
  
 add_library(${BACKEND_TARGET} SHARED ${BACKEND_HEADER} ${BACKEND_SRC})

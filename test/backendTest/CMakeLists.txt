@@ -17,8 +17,22 @@ add_definitions(-DBACKEND_TEST_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(BACKEND_TEST_TARGET pdCalcBackendTest)
 
-set(TEST_BACKEND_HEADER StackTest.h )
-set(TEST_BACKEND_SRC StackTest.cpp )
+set(TEST_BACKEND_HEADER
+    StackTest.h
+    CoreCommandsTest.h
+    CommandManagerTest.h
+    CommandInterpreterTest.h
+    CommandFactoryTest.h
+    StoredProcedureTest.h
+)
+set(TEST_BACKEND_SRC
+    StackTest.cpp
+    CoreCommandsTest.cpp
+    CommandManagerTest.cpp
+    CommandInterpreterTest.cpp
+    CommandFactoryTest.cpp
+    StoredProcedureTest.cpp
+)
 
 set(CMAKE_AUTOMOC ON)
 
