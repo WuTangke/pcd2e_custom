@@ -17,8 +17,18 @@
 // along with pdCalc; if not, see <http://www.gnu.org/licenses/>.
 
 #include <QtTest/QtTest>
-#include "../utilitiesTest/PublisherObserverTest.h"
-#include "../backendTest/StackTest.h"
+#include "PublisherObserverTest.h"
+#include "TokenizerTest.h"
+//#include "../pluginsTest/HyperbolicLnPluginTest.h"
+//#include "../uiTest/DisplayTest.h"
+//#include "../uiTest/CliTest.h"
+#include "CommandInterpreterTest.h"
+#include "CommandManagerTest.h"
+#include "CommandFactoryTest.h"
+#include "CoreCommandsTest.h"
+//#include "../backendTest/PluginLoaderTest.h"
+#include "StackTest.h"
+#include "StoredProcedureTest.h"
 
 #include <iostream>
 #include <QStringList>
@@ -29,33 +39,63 @@ using std::endl;
 
 int main(int argc, char* argv[])
 {
-    // I use QStringList instead of argv directly because the QStringList
-    // argument to qExec is constant. API doc indicates that for the argv
-    // version, it may alter argv making repeated calls to qExec unstable
-    // with respect to the arguments.
-    QStringList args;
-    for(int i = 0; i < argc; ++i)
-        args.append( QString{argv[i]} );
+	// I use QStringList instead of argv directly because the QStringList
+	// argument to qExec is constant. API doc indicates that for the argv
+	// version, it may alter argv making repeated calls to qExec unstable
+	// with respect to the arguments.
+	QStringList args;
+	for (int i = 0; i < argc; ++i)
+		args.append(QString{ argv[i] });
 
-    std::unordered_map<std::string, int> passFail;
+	std::unordered_map<std::string, int> passFail;
 
-    PublisherObserverTest pot;
-    passFail["PublisherObserverTest"] = QTest::qExec(&pot, args);
+	PublisherObserverTest pot;
+	passFail["PublisherObserverTest"] = QTest::qExec(&pot, args);
 
-    StackTest st;
-    passFail["StackTest"] = QTest::qExec(&st, args);
+	TokenizerTest tt;
+	passFail["TokenizerTest"] = QTest::qExec(&tt, args);
 
-    cout << endl;
-    int errors = 0;
-    for(const auto& [key, val] : passFail)
-    {
-        errors += val;
-        if(val != 0)
-            cout << "Failed test in " << key << endl;
-    }
+	//HyperbolicLnPluginTest hpt;
+	//passFail["HyperbolicPluginTest"] = QTest::qExec(&hpt, args);
 
-    if(errors == 0)
-        cout << "All tests passed" << endl;
+	//DisplayTest dt;
+	//passFail["DisplayTest"] = QTest::qExec(&dt, args);
 
-    return 0;
+	//CliTest ct;
+	//passFail["CliTest"] = QTest::qExec(&ct, args);
+
+	CommandInterpreterTest cet;
+	passFail["CommandInterpreterTest"] = QTest::qExec(&cet, args);
+
+	CommandManagerTest cmt;
+	passFail["CommandManagerTest"] = QTest::qExec(&cmt, args);
+
+	CommandFactoryTest cft;
+	passFail["CommandFactoryTest"] = QTest::qExec(&cft, args);
+
+	CoreCommandsTest cct;
+	passFail["CoreCommandsTest"] = QTest::qExec(&cct, args);
+
+	//PluginLoaderTest plt;
+	//passFail["PluginLoaderTest"] = QTest::qExec(&plt, args);
+
+	StackTest st;
+	passFail["StackTest"] = QTest::qExec(&st, args);
+
+	StoredProcedureTest spt;
+	passFail["StoredProcedureTest"] = QTest::qExec(&spt, args);
+
+	cout << endl;
+	int errors = 0;
+	for (const auto& [key, val] : passFail)
+	{
+		errors += val;
+		if (val != 0)
+			cout << "Failed test in " << key << endl;
+	}
+
+	if (errors == 0)
+		cout << "All tests passed" << endl;
+
+	return 0;
 }

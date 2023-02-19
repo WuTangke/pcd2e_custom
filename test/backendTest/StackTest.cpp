@@ -2,9 +2,8 @@
 #include <vector>
 #include <any>
 
-#include "src/backend/Stack.h"
-#include "src/utilities/Observer.h"
-#include "src/utilities/Exception.h"
+#include "Stack.h"
+#include "Utilities.h"
 
 using std::vector;
 using std::vector;
